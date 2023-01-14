@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: '/test', // Change to `/running_page` when running on github pages
+  pathPrefix: '/freya_running', // Change to `/running_page` when running on github pages
   siteMetadata: {
     siteTitle: 'Running Page',
     siteUrl: 'https://conge.livingwithfcs.org',
