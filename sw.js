@@ -27,24 +27,24 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-68e7542a5f347041b25d.js"
+    "url": "webpack-runtime-02efbf254e81a3f43580.js"
   },
   {
     "url": "framework-8092182b2c8a45123cff.js"
   },
   {
-    "url": "app-2212b03552d46c1ce452.js"
+    "url": "app-056d6d26c09be56204d5.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "7288e37053f9e694abcfff2084a655be"
+    "revision": "658c9e36ae7d06db8ac62b2ed4310662"
   },
   {
     "url": "polyfill-14854c9902868fed1421.js"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "82362eac6288a50794bbd0caa9ced3e3"
+    "revision": "27ca47ee5f4654774d746efe1c589aca"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
@@ -149,12 +149,12 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   lastNavigationRequest = event.request.url
 
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/test`), ``)
+  pathname = pathname.replace(new RegExp(`^/freya_running`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/test/app-2212b03552d46c1ce452.js`))) {
+  if (!resources || !(await caches.match(`/freya_running/app-056d6d26c09be56204d5.js`))) {
     return await fetch(event.request)
   }
 
@@ -167,7 +167,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/test/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/freya_running/offline-plugin-app-shell-fallback/index.html`
   const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })
