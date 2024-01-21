@@ -27,17 +27,17 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-fa8272070687009ef67d.js"
+    "url": "webpack-runtime-24533867c4b31455bb73.js"
   },
   {
     "url": "framework-8092182b2c8a45123cff.js"
   },
   {
-    "url": "app-6b5561431de1ca4c7a2f.js"
+    "url": "app-c4db746380bcad1f05ae.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "ff1b92760eba904fa4db7f1f5fe1123c"
+    "revision": "859da73719b61b198771de68a76ef217"
   },
   {
     "url": "polyfill-14854c9902868fed1421.js"
@@ -154,7 +154,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/freya_running/app-6b5561431de1ca4c7a2f.js`))) {
+  if (!resources || !(await caches.match(`/freya_running/app-c4db746380bcad1f05ae.js`))) {
     return await fetch(event.request)
   }
 
